@@ -1,1 +1,1 @@
-# journaling-app
+# Journaling app
