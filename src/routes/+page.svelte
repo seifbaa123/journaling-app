@@ -1,7 +1,20 @@
 <script lang="ts">
-    export let data;
-    console.log(data.journals);
+	import Calendar from '$lib/calendar/Calendar.svelte';
+
+	export let data;
+	console.log(data.journals);
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="container">
+	<Calendar />
+</div>
+
+<style>
+	.container {
+		width: 100%;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+</style>
