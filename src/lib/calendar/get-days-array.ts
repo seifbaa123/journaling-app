@@ -1,7 +1,8 @@
-export type DaysArray = Array<Array<number | "empty">>
+export type WeekArray = Array<number | "empty">
+export type DaysArray = Array<WeekArray>
 
 const WEEK_DAYS = 7
-const MONTH_WEEKS = 6
+const MONTH_WEEKS = 7
 const FIX_WEEK_DAYS_ORDER_PREFIX = 6
 
 export default function getDaysArray(month: number, year: number): DaysArray {
@@ -17,7 +18,7 @@ export default function getDaysArray(month: number, year: number): DaysArray {
         days[getMonthWeek(date)][getWeekDay(date)] = day
     }
 
-    return days
+    return days.filter(w => !isEmptyWeek(w))
 }
 
 function getWeekDay(date: Date) {
@@ -40,4 +41,12 @@ function getMonthDays(month: number, year: number): number {
         default:
             throw new Error(`DateError: Invalid month number ${month}`)
     }
+}
+
+function isEmptyWeek(week: WeekArray) {
+    for (const w of week) {
+        if (w != "empty") return false
+    }
+
+    return true
 }
