@@ -1,12 +1,14 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import Calendar from '$lib/calendar/Calendar.svelte';
+	import { formatDate } from '$lib/utils.js';
 
 	export let data;
 	console.log(data.journals);
 </script>
 
 <div class="container">
-	<Calendar onDateSelected={({ day, month, year }) => alert(`${day}/${month}/${year}`)} />
+	<Calendar onDateSelected={(date) => goto(`/${formatDate(date)}`)} />
 </div>
 
 <style>

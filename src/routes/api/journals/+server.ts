@@ -8,6 +8,6 @@ export async function GET() {
 
 export async function POST({ request }) {
     const body = await request.json()
-    const journal = await db.journal.create(body)
+    const journal = await db.journal.create({ data: body })
     return json({ journal })
 }
