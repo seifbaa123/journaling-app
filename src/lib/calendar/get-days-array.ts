@@ -14,7 +14,7 @@ export default function getDaysArray(month: number, year: number): DaysArray {
 
     const monthDays = getMonthDays(month, year)
     for (let day = 1; day <= monthDays; day++) {
-        const date = new Date(`${year}-${month}-${day}`)
+        const date = new Date(`${year}-${month + 1}-${day}`)
         days[getMonthWeek(date)][getWeekDay(date)] = day
     }
 
@@ -31,13 +31,14 @@ function getMonthWeek(date: Date) {
 }
 
 function getMonthDays(month: number, year: number): number {
+    month++
     switch (month) {
         case 1: case 3: case 5: case 7: case 8: case 10: case 12:
             return 31
         case 4: case 6: case 9: case 11:
             return 30
         case 2:
-            return year % 4 ? 29 : 28
+            return year % 4 === 0 ? 29 : 28
         default:
             throw new Error(`DateError: Invalid month number ${month}`)
     }

@@ -6,7 +6,7 @@
 </script>
 
 <div class="container">
-	<Calendar />
+	<Calendar onDateSelected={({ day, month, year }) => alert(`${day}/${month}/${year}`)} />
 </div>
 
 <style>

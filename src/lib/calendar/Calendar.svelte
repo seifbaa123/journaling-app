@@ -1,10 +1,13 @@
 <script lang="ts">
 	import getDaysArray from './get-days-array';
 
+	export let onDateSelected: (date: { day: number; month: number; year: number }) => void;
+
 	type CalendarState = 'days' | 'months' | 'year';
 
-	let month = 1;
-	let year = 2023;
+	const date = new Date();
+	let month = date.getMonth();
+	let year = date.getFullYear();
 
 	let state: CalendarState = 'days';
 
@@ -26,7 +29,7 @@
 	];
 
 	function setMonth(m: number) {
-		month = m + 1;
+		month = m;
 		state = 'days';
 	}
 
@@ -40,14 +43,21 @@
 	{#if state === 'days'}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<header on:click={() => (state = 'months')}>{monthsNamesList[month - 1]} {year}</header>
+		<header on:click={() => (state = 'months')}>{monthsNamesList[month]} {year}</header>
 		<div class="grid days">
 			{#each daysArray as week}
 				{#each week as day}
 					{#if day === 'empty'}
 						<div class="grid-item day" />
 					{:else}
-						<div class="grid-item day">{day}</div>
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<div
+							class="grid-item day"
+							on:click={() => onDateSelected({ day: Number(day), month: month + 1, year })}
+						>
+							{day}
+						</div>
 					{/if}
 				{/each}
 			{/each}
