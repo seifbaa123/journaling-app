@@ -45,6 +45,17 @@
 
 		goto('/');
 	}
+
+	function handleRemove() {
+		fetch(`/api/journals/${journal.date}`, {
+			method: 'DELETE',
+			headers: {
+				'Content-type': 'application/json'
+			}
+		});
+
+		goto('/');
+	}
 </script>
 
 <h1>Date {$page.params.date}</h1>
@@ -76,3 +87,5 @@
 	</div>
 	<button>save</button>
 </form>
+
+<button on:click={handleRemove}>remove</button>
