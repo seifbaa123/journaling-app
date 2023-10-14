@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Journal {
+model Journals {
   date   String  @id
   title  String
   body   String
