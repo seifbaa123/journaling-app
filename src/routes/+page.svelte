@@ -4,11 +4,10 @@
 	import { formatDate } from '$lib/utils.js';
 
 	export let data;
-	console.log(data.journals);
 </script>
 
 <div class="container">
-	<Calendar onDateSelected={(date) => goto(`/${formatDate(date)}`)} />
+	<Calendar journals={data.journals} onDateSelected={(date) => goto(`/${formatDate(date)}`)} />
 </div>
 
 <style>

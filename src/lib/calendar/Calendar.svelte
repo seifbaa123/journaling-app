@@ -1,7 +1,12 @@
 <script lang="ts">
+	import type { Journals } from '@prisma/client';
 	import getDaysArray from './get-days-array';
+	import { formatDate } from '$lib/utils';
 
+	export let journals: Journals[];
 	export let onDateSelected: (date: { day: number; month: number; year: number }) => void;
+
+	const journalsMap = new Map<string, boolean>(journals.map((j) => [j.date, true]));
 
 	type CalendarState = 'days' | 'months' | 'year';
 
@@ -53,7 +58,11 @@
 						<!-- svelte-ignore a11y-click-events-have-key-events -->
 						<!-- svelte-ignore a11y-no-static-element-interactions -->
 						<div
-							class="grid-item day"
+							class="grid-item day {journalsMap.has(
+								formatDate({ day: Number(day), month: month + 1, year })
+							)
+								? 'active'
+								: ''}"
 							on:click={() => onDateSelected({ day: Number(day), month: month + 1, year })}
 						>
 							{day}
@@ -124,6 +133,10 @@
 
 	.day {
 		aspect-ratio: 1/1;
+	}
+
+	.day.active {
+		background-color: darkgray;
 	}
 
 	.month {
