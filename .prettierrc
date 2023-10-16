@@ -7,6 +7,7 @@
 	"pluginSearchDirs": ["."],
 	"overrides": [
 		{ "files": "*.svelte", "options": { "parser": "svelte" } },
-		{ "files": "*.ts", "options": { "parser": "typescript" } }
+		{ "files": "*.ts", "options": { "parser": "typescript" } },
+		{ "files": "*.css", "options": { "parser": "css" } }
 	]
 }

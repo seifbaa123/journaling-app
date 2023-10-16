@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Calendar from '$lib/calendar/Calendar.svelte';
+	import Calendar from '$lib/components/calendar/Calendar.svelte';
 	import { formatDate } from '$lib/utils.js';
 
 	export let data;

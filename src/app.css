@@ -1,0 +1,27 @@
+@font-face {
+    font-family: OpenSans;
+    src: url("/fonts/OpenSans.ttf");
+}
+
+*, *::before,*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: OpenSans;
+}
+
+button, input, textarea {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.btn {
+    padding: .25em;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: darkgray;
+}

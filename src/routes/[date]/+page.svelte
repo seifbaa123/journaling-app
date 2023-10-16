@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { goto, invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
+	import Input from '$lib/components/Input.svelte';
 
-	import Switch from '$lib/Switch.svelte';
+	import Switch from '$lib/components/Switch.svelte';
 
 	export let data;
 
@@ -58,34 +59,44 @@
 	}
 </script>
 
-<h1>Date {$page.params.date}</h1>
+<div class="container">
+	<h1>Date {$page.params.date}</h1>
 
-<form on:submit={handleSubmit}>
-	<div>
-		<label>
-			Title
-			<input type="text" bind:value={journal.title} />
-		</label>
-	</div>
-	<div>
-		<label>
-			Body
-			<textarea bind:value={journal.body} />
-		</label>
-	</div>
-	<div>
-		Status
-		<Switch bind:checked={journal.status} />
-	</div>
-	<div>
-		Sport
-		<Switch bind:checked={journal.sport} />
-	</div>
-	<div>
-		Coding
-		<Switch bind:checked={journal.coding} />
-	</div>
-	<button>save</button>
-</form>
+	<form on:submit={handleSubmit}>
+		<div class="flags">
+			<div class="flag">
+				<p>Status</p>
+				<Switch bind:checked={journal.status} />
+			</div>
+			<div class="flag">
+				<p>Sport</p>
+				<Switch bind:checked={journal.sport} />
+			</div>
+			<div class="flag">
+				<p>Coding</p>
+				<Switch bind:checked={journal.coding} />
+			</div>
+		</div>
+		<Input label="Title" bind:value={journal.title} />
+		<Input label="Body" type="textarea" bind:value={journal.body} />
+		<button class="btn">save</button>
+	</form>
 
-<button on:click={handleRemove}>remove</button>
+	<button class="btn" on:click={handleRemove}>remove</button>
+</div>
+
+<style>
+	.container {
+		width: 100%;
+		max-width: 768px;
+		margin: 5rem auto;
+	}
+
+	.flag {
+		width: 100%;
+		padding: 0.25rem 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+</style>

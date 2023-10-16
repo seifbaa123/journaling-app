@@ -1,5 +1,4 @@
-export type WeekArray = Array<number | "empty">
-export type DaysArray = Array<WeekArray>
+import type { DaysArray, WeekArray } from "./calendar-types"
 
 const WEEK_DAYS = 7
 const MONTH_WEEKS = 7
@@ -8,7 +7,7 @@ const FIX_WEEK_DAYS_ORDER_PREFIX = 6
 export default function getDaysArray(month: number, year: number): DaysArray {
     const days: DaysArray = []
     for (let i = 0; i < MONTH_WEEKS; i++) {
-        const week = new Array(WEEK_DAYS).fill("empty", 0, WEEK_DAYS)
+        const week = new Array(WEEK_DAYS).fill(0, 0, WEEK_DAYS)
         days.push(week)
     }
 
@@ -46,7 +45,7 @@ function getMonthDays(month: number, year: number): number {
 
 function isEmptyWeek(week: WeekArray) {
     for (const w of week) {
-        if (w != "empty") return false
+        if (w != 0) return false
     }
 
     return true
