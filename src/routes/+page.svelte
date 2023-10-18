@@ -7,8 +7,6 @@
 	export let data;
 </script>
 
-<a href="/heatmap">heatmap</a>
-
 <div class="container">
 	<div class="item center">
 		<Calendar journals={data.journals} onDateSelected={(date) => goto(`/${formatDate(date)}`)} />
