@@ -13,6 +13,15 @@
 		{config.year}
 	</button>
 </CalendarHeader>
+<div class="days-names">
+	<p>Mon</p>
+	<p>Tue</p>
+	<p>Wed</p>
+	<p>Thu</p>
+	<p>Fri</p>
+	<p>Sat</p>
+	<p>Sun</p>
+</div>
 <div class="grid days">
 	{#each config.daysArray as week}
 		{#each week as day}
@@ -50,6 +59,19 @@
 
 	.btn-header:hover {
 		background-color: var(--light-gray);
+	}
+
+	.days-names {
+		width: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+	.days-names p {
+		flex: 1;
+		border: var(--border);
+		text-align: center;
+		padding: 0.25rem;
 	}
 
 	.days {
