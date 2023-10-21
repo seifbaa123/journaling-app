@@ -14,6 +14,14 @@
 <style>
 	.content {
 		width: 100%;
-		padding-left: var(--side-bar-width);
+		padding-bottom: var(--side-bar-width);
+	}
+
+	@media screen and (min-width: 768px) {
+		.content {
+			width: 100%;
+			padding-bottom: unset;
+			padding-left: var(--side-bar-width);
+		}
 	}
 </style>

@@ -22,6 +22,7 @@
 
 		padding: var(--container-padding);
 		display: flex;
+		flex-direction: column;
 		gap: 1rem;
 	}
 
@@ -31,9 +32,18 @@
 
 	.calendar {
 		width: 100%;
-		min-height: calc(100vh - var(--container-padding) * 2);
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	@media screen and (min-width: 768px) {
+		.container {
+			flex-direction: row;
+		}
+
+		.calendar {
+			min-height: calc(100vh - var(--container-padding) * 2);
+		}
 	}
 </style>

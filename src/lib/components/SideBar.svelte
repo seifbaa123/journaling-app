@@ -19,13 +19,12 @@
 
 <style>
 	nav {
-		width: var(--side-bar-width);
-		height: 100%;
+		width: 100%;
+		height: var(--side-bar-width);
 		position: fixed;
-		top: 0;
+		bottom: 0;
 		left: 0;
 		display: flex;
-		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		gap: 1rem;
@@ -34,12 +33,26 @@
 	}
 
 	a {
+		flex: 1;
 		padding: 0.5em;
+		text-align: center;
 		font-size: 1.25rem;
 		color: var(--dark-gray);
 	}
 
 	a.active {
 		color: var(--blue);
+	}
+
+	@media screen and (min-width: 768px) {
+		nav {
+			width: var(--side-bar-width);
+			height: 100vh;
+			flex-direction: column;
+		}
+
+		a {
+			flex: unset;
+		}
 	}
 </style>

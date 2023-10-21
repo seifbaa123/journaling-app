@@ -20,7 +20,7 @@
     --green: #80e04d;
 
     --side-bar-width: 4rem;
-    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow: -1px -1px 5px rgba(0, 0, 0, 0.1);
 }
 
 body {
