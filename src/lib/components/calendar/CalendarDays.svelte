@@ -8,7 +8,7 @@
 </script>
 
 <CalendarHeader>
-	<button class="btn btn-header" on:click={() => (config.state = 'months')}>
+	<button class="btn-header" on:click={() => (config.state = 'months')}>
 		{monthsNamesList[config.month]}
 		{config.year}
 	</button>
@@ -37,9 +37,19 @@
 
 <style>
 	.btn-header {
-		width: 100%;
+		width: 85%;
+		padding: 1rem;
+		margin: 0 auto;
 		height: 100%;
 		display: block;
+		font-size: 1rem;
+		font-weight: bold;
+		background-color: var(--white);
+		cursor: pointer;
+	}
+
+	.btn-header:hover {
+		background-color: var(--light-gray);
 	}
 
 	.days {
@@ -54,17 +64,17 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: lightgray;
+		background-color: var(--white);
 		cursor: pointer;
-		border: 0.125rem solid darkgray;
+		border: var(--border);
 	}
 
 	.day:hover {
-		background-color: darkgray;
+		background-color: var(--light-gray);
 	}
 
 	.day.active {
-		background-color: gray;
+		background-color: var(--light-gray);
 	}
 
 	.disable {

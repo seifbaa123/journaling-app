@@ -29,7 +29,7 @@
 <style>
 	.heatmap {
 		width: 100%;
-		padding: 0.25rem 0;
+		margin: 0.25rem 0 1rem;
 		display: grid;
 		grid-template-columns: repeat(53, 1fr);
 		gap: 0.25rem;
@@ -38,14 +38,15 @@
 	.day {
 		width: 100%;
 		aspect-ratio: 1/1;
-		background-color: gray;
+		border-radius: 0.25rem;
+		background-color: var(--light-gray);
 	}
 
 	.day.true {
-		background-color: green;
+		background-color: var(--green);
 	}
 
 	.day.false {
-		background-color: red;
+		background-color: var(--red);
 	}
 </style>

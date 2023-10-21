@@ -1,9 +1,8 @@
-import { getMonthDays } from "$lib/utils"
+import { getMonthDays, getWeekDay } from "$lib/utils"
 import type { DaysArray, WeekArray } from "./calendar-types"
 
 const WEEK_DAYS = 7
 const MONTH_WEEKS = 7
-const FIX_WEEK_DAYS_ORDER_PREFIX = 6
 
 export default function getDaysArray(month: number, year: number): DaysArray {
     const days: DaysArray = []
@@ -19,10 +18,6 @@ export default function getDaysArray(month: number, year: number): DaysArray {
     }
 
     return days.filter(w => !isEmptyWeek(w))
-}
-
-function getWeekDay(date: Date) {
-    return (date.getDay() + FIX_WEEK_DAYS_ORDER_PREFIX) % WEEK_DAYS
 }
 
 function getMonthWeek(date: Date) {

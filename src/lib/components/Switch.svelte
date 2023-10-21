@@ -19,7 +19,7 @@
 		height: 1.5rem;
 		position: relative;
 		border-radius: 100vh;
-		background-color: lightgray;
+		background-color: var(--light-gray);
 		cursor: pointer;
 	}
 
@@ -43,7 +43,7 @@
 	}
 
 	.switch.active {
-		background-color: lightblue;
+		background-color: var(--blue);
 	}
 
 	.switch.active::before {

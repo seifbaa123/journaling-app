@@ -18,9 +18,9 @@
 
 <CalendarHeader>
 	<div class="year">
-		<button class="btn" on:click={() => setYear(--config.year)}>-</button>
+		<button on:click={() => setYear(--config.year)}><i class="fa-solid fa-chevron-left" /></button>
 		<p>{config.year}</p>
-		<button class="btn" on:click={() => setYear(++config.year)}>+</button>
+		<button on:click={() => setYear(++config.year)}><i class="fa-solid fa-chevron-right" /></button>
 	</div>
 </CalendarHeader>
 <div class="months">
@@ -42,18 +42,28 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: lightgray;
-		border: 0.125rem solid darkgray;
+		background-color: var(--white);
+		border: var(--border);
 		cursor: pointer;
 	}
 
 	.month:hover {
-		background-color: darkgray;
+		background-color: var(--light-gray);
 	}
 
 	.year {
+		font-weight: bold;
 		display: flex;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: space-between;
+	}
+
+	.year button {
+		padding: 1rem 1.25rem;
+		cursor: pointer;
+	}
+
+	.year button:hover {
+		background-color: var(--light-gray);
 	}
 </style>

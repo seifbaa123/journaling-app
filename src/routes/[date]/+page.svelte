@@ -48,14 +48,16 @@
 	}
 
 	function handleRemove() {
-		fetch(`/api/journals/${journal.date}`, {
-			method: 'DELETE',
-			headers: {
-				'Content-type': 'application/json'
-			}
-		});
+		if (confirm('Remove this journal!')) {
+			fetch(`/api/journals/${journal.date}`, {
+				method: 'DELETE',
+				headers: {
+					'Content-type': 'application/json'
+				}
+			});
 
-		goto('/');
+			goto('/');
+		}
 	}
 </script>
 
@@ -79,10 +81,12 @@
 		</div>
 		<Input label="Title" bind:value={journal.title} />
 		<Input label="Body" type="textarea" bind:value={journal.body} />
-		<button class="btn">save</button>
+		<button class="btn primary">save</button>
 	</form>
 
-	<button class="btn" on:click={handleRemove}>remove</button>
+	<button class="remove-btn" on:click={handleRemove}>
+		<i class="fa-solid fa-trash" />
+	</button>
 </div>
 
 <style>
@@ -90,13 +94,34 @@
 		width: 100%;
 		max-width: 768px;
 		margin: 5rem auto;
+		padding: 1rem;
+	}
+
+	h1 {
+		margin-bottom: 1rem;
 	}
 
 	.flag {
 		width: 100%;
 		padding: 0.25rem 0;
+		font-weight: bold;
+		color: var(--dark-gray);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+
+	.remove-btn {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		font-size: 1.25rem;
+		color: var(--red);
+		transition: color 0.3s ease-out;
+		cursor: pointer;
+	}
+
+	.remove-btn:hover {
+		color: var(--dark-gray);
 	}
 </style>

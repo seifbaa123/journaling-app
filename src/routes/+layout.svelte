@@ -1,6 +1,9 @@
 <script lang="ts">
-	import SideBar from '$lib/components/SideBar.svelte';
+	import '@fortawesome/fontawesome-free/js/all.js';
+	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import '../app.css';
+
+	import SideBar from '$lib/components/SideBar.svelte';
 </script>
 
 <SideBar />
@@ -11,6 +14,6 @@
 <style>
 	.content {
 		width: 100%;
-		padding-left: 1rem;
+		padding-left: var(--side-bar-width);
 	}
 </style>

@@ -8,7 +8,7 @@
 </script>
 
 <div class="container">
-	<div class="item center">
+	<div class="item calendar">
 		<Calendar journals={data.journals} onDateSelected={(date) => goto(`/${formatDate(date)}`)} />
 	</div>
 	<div class="item">
@@ -18,16 +18,20 @@
 
 <style>
 	.container {
+		--container-padding: 1rem;
+
+		padding: var(--container-padding);
 		display: flex;
+		gap: 1rem;
 	}
 
 	.item {
 		flex: 1;
 	}
 
-	.center {
+	.calendar {
 		width: 100%;
-		min-height: 100vh;
+		min-height: calc(100vh - var(--container-padding) * 2);
 		display: flex;
 		align-items: center;
 		justify-content: center;

@@ -19,3 +19,9 @@ export function getMonthDays(month: number, year: number): number {
             throw new Error(`DateError: Invalid month number ${month}`)
     }
 }
+
+const WEEK_DAYS = 7
+const FIX_WEEK_DAYS_ORDER_PREFIX = 6
+export function getWeekDay(date: Date) {
+    return (date.getDay() + FIX_WEEK_DAYS_ORDER_PREFIX) % WEEK_DAYS
+}

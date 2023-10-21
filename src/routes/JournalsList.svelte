@@ -13,15 +13,32 @@
 				<a href={j.date}><i>Empty title</i></a>
 			{/if}
 			<span>{j.date}</span>
-			<p>{j.body}</p>
+			<p>{j.body.substring(0, 120)}</p>
 		</div>
 	{/each}
 </div>
 
 <style>
+	.journal {
+		padding: 1rem;
+		margin-bottom: 1rem;
+		border-radius: 0.25rem;
+	}
+
+	.journal:hover {
+		background-color: var(--light-gray);
+	}
+
 	a {
+		color: var(--black);
 		display: block;
 		font-weight: bold;
-		font-size: 1.25rem;
+		font-size: 1.5rem;
+		text-decoration: none;
+	}
+
+	span {
+		font-size: 0.75rem;
+		color: var(--dark-gray);
 	}
 </style>

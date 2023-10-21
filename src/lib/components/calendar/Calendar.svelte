@@ -33,8 +33,10 @@
 
 <style>
 	.calendar {
+		--border: 1px solid var(--light-gray);
+
 		width: 420px;
 		max-width: 100%;
-		border: 0.125rem solid darkgray;
+		border: var(--border);
 	}
 </style>
