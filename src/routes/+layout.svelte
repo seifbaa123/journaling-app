@@ -7,19 +7,18 @@
 </script>
 
 <SideBar />
-<div class="content">
+<main>
 	<slot />
-</div>
+</main>
 
 <style>
-	.content {
+	main {
 		width: 100%;
 		padding-bottom: var(--side-bar-width);
 	}
 
 	@media screen and (min-width: 768px) {
-		.content {
-			width: 100%;
+		main {
 			padding-bottom: unset;
 			padding-left: var(--side-bar-width);
 		}

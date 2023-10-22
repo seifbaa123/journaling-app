@@ -3,9 +3,8 @@
 	export let onChange: ((value: boolean) => void) | undefined = undefined;
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-<div
+<button
+	type="button"
 	class="switch {checked ? 'active' : ''}"
 	on:click={() => {
 		checked = !checked;

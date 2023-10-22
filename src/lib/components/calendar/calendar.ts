@@ -1,10 +1,23 @@
 import { getMonthDays, getWeekDay } from "$lib/utils"
-import type { DaysArray, WeekArray } from "./calendar-types"
+
+export type WeekArray = Array<number>
+export type DaysArray = Array<WeekArray>
+
+export type CalendarDate = { day: number; month: number; year: number }
+
+export type Config = {
+    journalsMap: Map<string, boolean>;
+    daysArray: DaysArray;
+    month: number;
+    year: number;
+    state: 'days' | 'months';
+    onDateSelected: (date: CalendarDate) => void;
+}
 
 const WEEK_DAYS = 7
 const MONTH_WEEKS = 7
 
-export default function getDaysArray(month: number, year: number): DaysArray {
+export function getDaysArray(month: number, year: number): DaysArray {
     const days: DaysArray = []
     for (let i = 0; i < MONTH_WEEKS; i++) {
         const week = new Array(WEEK_DAYS).fill(0, 0, WEEK_DAYS)

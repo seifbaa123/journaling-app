@@ -1,5 +1,5 @@
 <script lang="ts">
-	import monthsNamesList from '../calendar/moths-list';
+	import { monthsNamesList } from '$lib/data';
 	import { getHeatmap, fillHeatmap, HeatmapState } from './heatmap';
 
 	export let title: string = '';

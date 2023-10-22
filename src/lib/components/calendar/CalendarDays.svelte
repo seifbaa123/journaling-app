@@ -1,10 +1,14 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils';
 	import CalendarHeader from './CalendarHeader.svelte';
-	import type { Config, DaysArray } from './calendar-types';
-	import monthsNamesList from './moths-list';
+	import type { CalendarDate, Config } from './calendar';
+	import { monthsNamesList } from '$lib/data';
 
 	export let config: Config;
+
+	function getDayActiveClass(date: CalendarDate) {
+		return config.journalsMap.has(formatDate(date)) ? 'active' : '';
+	}
 </script>
 
 <CalendarHeader>
@@ -13,7 +17,7 @@
 		{config.year}
 	</button>
 </CalendarHeader>
-<div class="days-names">
+<div class="labels">
 	<p>Mon</p>
 	<p>Tue</p>
 	<p>Wed</p>
@@ -29,15 +33,14 @@
 				<button class="grid-item day disable" />
 			{:else}
 				<button
-					class="grid-item day {config.journalsMap.has(
-						formatDate({ day, month: config.month + 1, year: config.year })
-					)
-						? 'active'
-						: ''}"
+					class="grid-item day {getDayActiveClass({
+						day,
+						month: config.month + 1,
+						year: config.year
+					})}"
 					on:click={() =>
 						config.onDateSelected({ day, month: config.month + 1, year: config.year })}
-				>
-					{day}
+					>{day}
 				</button>
 			{/if}
 		{/each}
@@ -61,13 +64,13 @@
 		background-color: var(--light-gray);
 	}
 
-	.days-names {
+	.labels {
 		width: 100%;
 		display: flex;
 		align-items: center;
 	}
 
-	.days-names p {
+	.labels p {
 		flex: 1;
 		border: var(--border);
 		text-align: center;

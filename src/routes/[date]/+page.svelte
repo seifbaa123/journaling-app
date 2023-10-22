@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { goto, invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
 	import Input from '$lib/components/Input.svelte';
-
 	import Switch from '$lib/components/Switch.svelte';
+	import type { Journals } from '@prisma/client';
+	import { handleRemove, handleSubmit } from './handles.js';
 
 	export let data;
 
 	let isJournalExist = true;
-	let journal = { ...data.journal };
+	let journal: Journals = { ...(data.journal as Journals) };
 
-	if (data.journal === null) {
+	if (data.journal == null) {
 		isJournalExist = false;
 		journal = {
 			date: $page.params.date,
@@ -21,50 +21,12 @@
 			coding: false
 		};
 	}
-
-	async function handleSubmit(e: Event) {
-		e.preventDefault();
-
-		if (isJournalExist) {
-			fetch(`/api/journals/${journal.date}`, {
-				method: 'PUT',
-				headers: {
-					'Content-type': 'application/json'
-				},
-				body: JSON.stringify(journal)
-			});
-		} else {
-			isJournalExist = true;
-			fetch(`/api/journals/`, {
-				method: 'POST',
-				headers: {
-					'Content-type': 'application/json'
-				},
-				body: JSON.stringify(journal)
-			});
-		}
-
-		invalidateAll().then(() => goto('/'));
-	}
-
-	function handleRemove() {
-		if (confirm('Remove this journal!')) {
-			fetch(`/api/journals/${journal.date}`, {
-				method: 'DELETE',
-				headers: {
-					'Content-type': 'application/json'
-				}
-			});
-
-			goto('/');
-		}
-	}
 </script>
 
 <div class="container">
 	<h1>Date {$page.params.date}</h1>
 
-	<form on:submit={handleSubmit}>
+	<form on:submit|preventDefault={() => handleSubmit(journal, isJournalExist)}>
 		<div class="flags">
 			<div class="flag">
 				<p>Status</p>
@@ -84,9 +46,11 @@
 		<button class="btn primary">save</button>
 	</form>
 
-	<button class="remove-btn" on:click={handleRemove}>
-		<i class="fa-solid fa-trash" />
-	</button>
+	{#if isJournalExist}
+		<button class="remove-btn" on:click={() => handleRemove(journal)}>
+			<i class="fa-solid fa-trash" />
+		</button>
+	{/if}
 </div>
 
 <style>

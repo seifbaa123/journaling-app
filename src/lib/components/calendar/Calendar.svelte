@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Journals } from '@prisma/client';
-	import type { CalendarDate, Config } from './calendar-types';
-	import getDaysArray from './get-days-array';
+	import { getDaysArray } from './calendar';
+	import type { CalendarDate, Config } from './calendar';
 	import CalendarDays from './CalendarDays.svelte';
 	import CalendarMonths from './CalendarMonths.svelte';
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CalendarHeader from './CalendarHeader.svelte';
-	import type { Config } from './calendar-types';
-	import monthsNamesList from './moths-list';
+	import type { Config } from './calendar';
+	import { monthsNamesList } from '$lib/data';
 
 	export let config: Config;
 
