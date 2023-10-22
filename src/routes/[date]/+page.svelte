@@ -3,7 +3,8 @@
 	import Input from '$lib/components/Input.svelte';
 	import Switch from '$lib/components/Switch.svelte';
 	import type { Journals } from '@prisma/client';
-	import { handleRemove, handleSubmit } from './handles.js';
+	import { handleRemove, handleSubmit } from './handles';
+	import { lang } from '$lib/store';
 
 	export let data;
 
@@ -24,26 +25,26 @@
 </script>
 
 <div class="container">
-	<h1>Date {$page.params.date}</h1>
+	<h1>{$lang.date} {$page.params.date}</h1>
 
 	<form on:submit|preventDefault={() => handleSubmit(journal, isJournalExist)}>
 		<div class="flags">
 			<div class="flag">
-				<p>Status</p>
+				<p>{$lang.status}</p>
 				<Switch bind:checked={journal.status} />
 			</div>
 			<div class="flag">
-				<p>Sport</p>
+				<p>{$lang.sport}</p>
 				<Switch bind:checked={journal.sport} />
 			</div>
 			<div class="flag">
-				<p>Coding</p>
+				<p>{$lang.coding}</p>
 				<Switch bind:checked={journal.coding} />
 			</div>
 		</div>
-		<Input label="Title" bind:value={journal.title} />
-		<Input label="Body" type="textarea" bind:value={journal.body} />
-		<button class="btn primary">save</button>
+		<Input label={$lang.title} bind:value={journal.title} />
+		<Input label={$lang.body} type="textarea" bind:value={journal.body} />
+		<button class="btn primary">{$lang.save}</button>
 	</form>
 
 	{#if isJournalExist}
@@ -57,7 +58,7 @@
 	.container {
 		width: 100%;
 		max-width: 768px;
-		margin: 5rem auto;
+		margin: 2rem auto;
 		padding: 1rem;
 	}
 
@@ -87,5 +88,10 @@
 
 	.remove-btn:hover {
 		color: var(--dark-gray);
+	}
+
+	:global([dir='rtl']) .remove-btn {
+		right: unset;
+		left: 1rem;
 	}
 </style>

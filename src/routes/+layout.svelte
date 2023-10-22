@@ -22,5 +22,10 @@
 			padding-bottom: unset;
 			padding-left: var(--side-bar-width);
 		}
+
+		:global([dir='rtl']) main {
+			padding-left: unset;
+			padding-right: var(--side-bar-width);
+		}
 	}
 </style>

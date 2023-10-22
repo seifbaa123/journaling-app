@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { monthsNamesList } from '$lib/data';
 	import { getHeatmap, fillHeatmap, HeatmapState } from './heatmap';
+	import { lang } from '$lib/store';
 
 	export let title: string = '';
 	export let states: Map<string, boolean>;
@@ -19,11 +20,11 @@
 		{#each heatmap as row, index}
 			<tr>
 				{#if index === 0}
-					<td class="day-name">Mon</td>
+					<td class="day-name">{$lang.Mon}</td>
 				{:else if index === 2}
-					<td class="day-name">Wed</td>
+					<td class="day-name">{$lang.Wed}</td>
 				{:else if index === 4}
-					<td class="day-name">Fri</td>
+					<td class="day-name">{$lang.Fri}</td>
 				{:else}
 					<td class="day-name">&#8202;</td>
 				{/if}
@@ -55,6 +56,7 @@
 		overflow-x: auto;
 
 		--heatmap-width: 980px;
+		--heatmap-cell-height: 1rem;
 		--heatmap-day-name-width: 3rem;
 	}
 
@@ -67,10 +69,19 @@
 		justify-content: space-between;
 	}
 
+	:global([dir='rtl']) .months {
+		margin-left: unset;
+		margin-right: var(--heatmap-day-name-width);
+	}
+
 	.heatmap {
 		width: var(--heatmap-width);
 		gap: 0.25rem;
-		margin-bottom: 1rem;
+		margin-bottom: 1.25rem;
+	}
+
+	tr {
+		height: var(--heatmap-cell-height);
 	}
 
 	.day-name {
@@ -78,11 +89,17 @@
 		font-size: 0.75rem;
 		padding-right: 0.25rem;
 		text-align: right;
+		line-height: 1;
+	}
+
+	:global([dir='rtl']) .day-name {
+		text-align: left;
+		padding-left: 0.25rem;
+		padding-right: unset;
 	}
 
 	.day {
-		width: 1.25rem;
-		aspect-ratio: 1/1;
+		width: var(--heatmap-cell-height);
 		border-radius: 0.25rem;
 		background-color: var(--light-gray);
 	}

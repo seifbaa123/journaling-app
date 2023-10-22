@@ -17,7 +17,7 @@
 </script>
 
 <CalendarHeader>
-	<div class="year">
+	<div class="year" dir="ltr">
 		<button on:click={() => setYear(--config.year)}><i class="fa-solid fa-chevron-left" /></button>
 		<p>{config.year}</p>
 		<button on:click={() => setYear(++config.year)}><i class="fa-solid fa-chevron-right" /></button>

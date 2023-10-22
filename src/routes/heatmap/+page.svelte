@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Heatmap from '$lib/components/heatmap/Heatmap.svelte';
+	import { lang } from '$lib/store';
 
 	export let data;
 
@@ -9,9 +10,9 @@
 </script>
 
 <div class="container">
-	<Heatmap title="Status Heatmap" states={statusHeatmap} />
-	<Heatmap title="Sport Heatmap" states={sportHeatmap} />
-	<Heatmap title="Coding Heatmap" states={codingHeatmap} />
+	<Heatmap title={$lang.statusHeatmap} states={statusHeatmap} />
+	<Heatmap title={$lang.sportHeatmap} states={sportHeatmap} />
+	<Heatmap title={$lang.codingHeatmap} states={codingHeatmap} />
 </div>
 
 <style>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Journals } from '@prisma/client';
+	import { lang } from '$lib/store';
 
 	export let journals: Journals[];
 </script>
@@ -10,7 +11,7 @@
 			{#if j.title}
 				<a href={j.date}>{j.title}</a>
 			{:else}
-				<a href={j.date}><i>Empty title</i></a>
+				<a href={j.date}><i>{$lang.emptyTitle}</i></a>
 			{/if}
 			<span>{j.date}</span>
 			<p>{j.body.substring(0, 120)}</p>
@@ -34,6 +35,7 @@
 		display: block;
 		font-weight: bold;
 		font-size: 1.5rem;
+		line-height: 1.25;
 		text-decoration: none;
 	}
 

@@ -51,6 +51,11 @@
 			flex-direction: column;
 		}
 
+		:global([dir='rtl']) nav {
+			left: unset;
+			right: 0;
+		}
+
 		a {
 			flex: unset;
 		}

@@ -3,6 +3,7 @@
 	import CalendarHeader from './CalendarHeader.svelte';
 	import type { CalendarDate, Config } from './calendar';
 	import { monthsNamesList } from '$lib/data';
+	import { lang } from '$lib/store';
 
 	export let config: Config;
 
@@ -18,13 +19,13 @@
 	</button>
 </CalendarHeader>
 <div class="labels">
-	<p>Mon</p>
-	<p>Tue</p>
-	<p>Wed</p>
-	<p>Thu</p>
-	<p>Fri</p>
-	<p>Sat</p>
-	<p>Sun</p>
+	<p>{$lang.Mon}</p>
+	<p>{$lang.Tue}</p>
+	<p>{$lang.Wed}</p>
+	<p>{$lang.Thu}</p>
+	<p>{$lang.Fri}</p>
+	<p>{$lang.Sat}</p>
+	<p>{$lang.Sun}</p>
 </div>
 <div class="grid days">
 	{#each config.daysArray as week}

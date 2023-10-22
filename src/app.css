@@ -1,4 +1,9 @@
 @font-face {
+    font-family: NotoSansArabic;
+    src: url("/fonts/NotoSansArabic.ttf");
+}
+
+@font-face {
     font-family: OpenSans;
     src: url("/fonts/OpenSans.ttf");
 }
@@ -7,7 +12,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: OpenSans;
+    font-family: NotoSansArabic, OpenSans;
 }
 
 :root {
@@ -38,6 +43,7 @@ button, input, textarea {
     font-weight: bold;
     padding: 0.5em 1.25em;
     border-radius: .25em;
+    line-height: 1.25;
     background-color: var(--light-gray);
     transition: all .3s ease-out;
     cursor: pointer;
