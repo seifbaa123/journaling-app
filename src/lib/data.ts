@@ -9,17 +9,17 @@ function getMonthsNamesList(l?: Lang) {
     if (l == null) l = get(lang)
 
     return [
-        l.January,
-        l.February,
-        l.March,
-        l.April,
-        l.May,
-        l.June,
-        l.July,
-        l.August,
-        l.September,
-        l.October,
-        l.November,
-        l.December
+        l.words.January,
+        l.words.February,
+        l.words.March,
+        l.words.April,
+        l.words.May,
+        l.words.June,
+        l.words.July,
+        l.words.August,
+        l.words.September,
+        l.words.October,
+        l.words.November,
+        l.words.December
     ];
 }

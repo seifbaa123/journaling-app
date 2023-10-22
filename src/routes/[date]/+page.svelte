@@ -25,26 +25,26 @@
 </script>
 
 <div class="container">
-	<h1>{$lang.date} {$page.params.date}</h1>
+	<h1>{$lang.words.date} {$page.params.date}</h1>
 
 	<form on:submit|preventDefault={() => handleSubmit(journal, isJournalExist)}>
 		<div class="flags">
 			<div class="flag">
-				<p>{$lang.status}</p>
+				<p>{$lang.words.status}</p>
 				<Switch bind:checked={journal.status} />
 			</div>
 			<div class="flag">
-				<p>{$lang.sport}</p>
+				<p>{$lang.words.sport}</p>
 				<Switch bind:checked={journal.sport} />
 			</div>
 			<div class="flag">
-				<p>{$lang.coding}</p>
+				<p>{$lang.words.coding}</p>
 				<Switch bind:checked={journal.coding} />
 			</div>
 		</div>
-		<Input label={$lang.title} bind:value={journal.title} />
-		<Input label={$lang.body} type="textarea" bind:value={journal.body} />
-		<button class="btn primary">{$lang.save}</button>
+		<Input label={$lang.words.title} bind:value={journal.title} />
+		<Input label={$lang.words.body} type="textarea" bind:value={journal.body} />
+		<button class="btn primary">{$lang.words.save}</button>
 	</form>
 
 	{#if isJournalExist}

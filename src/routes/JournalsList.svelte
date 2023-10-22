@@ -11,7 +11,7 @@
 			{#if j.title}
 				<a href={j.date}>{j.title}</a>
 			{:else}
-				<a href={j.date}><i>{$lang.emptyTitle}</i></a>
+				<a href={j.date}><i>{$lang.words.emptyTitle}</i></a>
 			{/if}
 			<span>{j.date}</span>
 			<p>{j.body.substring(0, 120)}</p>

@@ -1,7 +1,5 @@
 import { writable } from "svelte/store";
 import type Lang from "./lang/lang-types";
+import { getLanguage } from "./lang/lang";
 
-import en from "$lib/lang/en"
-import ar from "$lib/lang/ar"
-
-export const lang = writable<Lang>(ar)
+export const lang = writable<Lang>(getLanguage())

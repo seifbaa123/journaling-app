@@ -10,9 +10,9 @@
 </script>
 
 <div class="container">
-	<Heatmap title={$lang.statusHeatmap} states={statusHeatmap} />
-	<Heatmap title={$lang.sportHeatmap} states={sportHeatmap} />
-	<Heatmap title={$lang.codingHeatmap} states={codingHeatmap} />
+	<Heatmap title={$lang.words.statusHeatmap} states={statusHeatmap} />
+	<Heatmap title={$lang.words.sportHeatmap} states={sportHeatmap} />
+	<Heatmap title={$lang.words.codingHeatmap} states={codingHeatmap} />
 </div>
 
 <style>

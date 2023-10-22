@@ -5,7 +5,8 @@
 
 	const links: Link[] = [
 		{ href: '/', icon: 'house' },
-		{ href: '/heatmap', icon: 'chart-line' }
+		{ href: '/heatmap', icon: 'chart-line' },
+		{ href: '/settings', icon: 'gear' }
 	];
 </script>
 
@@ -27,7 +28,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 1rem;
+		gap: 0.25rem;
 		box-shadow: var(--shadow);
 		background-color: var(--white);
 	}

@@ -20,11 +20,11 @@
 		{#each heatmap as row, index}
 			<tr>
 				{#if index === 0}
-					<td class="day-name">{$lang.Mon}</td>
+					<td class="day-name">{$lang.words.Mon}</td>
 				{:else if index === 2}
-					<td class="day-name">{$lang.Wed}</td>
+					<td class="day-name">{$lang.words.Wed}</td>
 				{:else if index === 4}
-					<td class="day-name">{$lang.Fri}</td>
+					<td class="day-name">{$lang.words.Fri}</td>
 				{:else}
 					<td class="day-name">&#8202;</td>
 				{/if}

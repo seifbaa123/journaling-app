@@ -19,13 +19,13 @@
 	</button>
 </CalendarHeader>
 <div class="labels">
-	<p>{$lang.Mon}</p>
-	<p>{$lang.Tue}</p>
-	<p>{$lang.Wed}</p>
-	<p>{$lang.Thu}</p>
-	<p>{$lang.Fri}</p>
-	<p>{$lang.Sat}</p>
-	<p>{$lang.Sun}</p>
+	<p>{$lang.words.Mon}</p>
+	<p>{$lang.words.Tue}</p>
+	<p>{$lang.words.Wed}</p>
+	<p>{$lang.words.Thu}</p>
+	<p>{$lang.words.Fri}</p>
+	<p>{$lang.words.Sat}</p>
+	<p>{$lang.words.Sun}</p>
 </div>
 <div class="grid days">
 	{#each config.daysArray as week}
