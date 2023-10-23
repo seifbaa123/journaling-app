@@ -34,5 +34,7 @@ export default interface Lang {
         removeThisJournal: string;
         settings: string;
         language: string;
+        theme: string;
+        darkMode: string;
     }
 }

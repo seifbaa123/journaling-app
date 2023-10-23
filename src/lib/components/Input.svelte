@@ -32,6 +32,7 @@
 		font-size: 1rem;
 		padding: 0.5em;
 		border-radius: 0.25em;
+		color: var(--dark-gray);
 		background-color: var(--light-gray);
 	}
 

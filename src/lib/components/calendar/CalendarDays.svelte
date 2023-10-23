@@ -2,7 +2,7 @@
 	import { formatDate } from '$lib/utils';
 	import CalendarHeader from './CalendarHeader.svelte';
 	import type { CalendarDate, Config } from './calendar';
-	import { monthsNamesList } from '$lib/data';
+	import { monthsNamesList } from '$lib/months-names';
 	import { lang } from '$lib/store';
 
 	export let config: Config;
@@ -57,6 +57,7 @@
 		display: block;
 		font-size: 1rem;
 		font-weight: bold;
+		color: var(--dark-gray);
 		background-color: var(--white);
 		cursor: pointer;
 	}
@@ -90,6 +91,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		color: var(--dark-gray);
 		background-color: var(--white);
 		cursor: pointer;
 		border: var(--border);

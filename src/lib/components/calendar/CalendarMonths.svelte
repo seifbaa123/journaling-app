@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CalendarHeader from './CalendarHeader.svelte';
 	import type { Config } from './calendar';
-	import { monthsNamesList } from '$lib/data';
+	import { monthsNamesList } from '$lib/months-names';
 
 	export let config: Config;
 
@@ -42,6 +42,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		color: var(--dark-gray);
 		background-color: var(--white);
 		border: var(--border);
 		cursor: pointer;
@@ -59,6 +60,7 @@
 	}
 
 	.year button {
+		color: var(--dark-gray);
 		padding: 1rem 1.25rem;
 		cursor: pointer;
 	}

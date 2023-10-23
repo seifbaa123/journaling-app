@@ -1,12 +1,14 @@
 <script>
 	import { lang } from '$lib/store';
 	import Language from './Language.svelte';
+	import Theme from './Theme.svelte';
 </script>
 
 <div class="container">
 	<h1>{$lang.words.settings}</h1>
 	<div class="settings">
-		<div class="box"><Language /></div>
+		<div class="box bg"><Language /></div>
+		<div class="box shadow"><Theme /></div>
 	</div>
 </div>
 
@@ -27,6 +29,13 @@
 	.box {
 		padding: 1rem;
 		border-radius: 0.25rem;
+	}
+
+	.box.shadow {
+		box-shadow: var(--shadow);
+	}
+
+	.box.bg {
 		background-color: var(--light-gray);
 	}
 

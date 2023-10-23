@@ -35,7 +35,9 @@ const lang: Lang = {
         December: "ديسمبر",
         removeThisJournal: "إزالة هذه اليومية!",
         settings: "الإعدادات",
-        language: "اللغة"
+        language: "اللغة",
+        theme: "مظهر الموقع",
+        darkMode: "الوضع الليلي"
     }
 }
 

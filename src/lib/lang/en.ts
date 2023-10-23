@@ -35,7 +35,9 @@ const lang: Lang = {
         December: "December",
         removeThisJournal: "Remove this journal!",
         settings: "Settings",
-        language: "Language"
+        language: "Language",
+        theme: "Theme",
+        darkMode: "Dark mode"
     }
 }
 

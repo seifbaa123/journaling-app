@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { monthsNamesList } from '$lib/data';
+	import { monthsNamesList } from '$lib/months-names';
 	import { getHeatmap, fillHeatmap, HeatmapState } from './heatmap';
 	import { lang } from '$lib/store';
 
