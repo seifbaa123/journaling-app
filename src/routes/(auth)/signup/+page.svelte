@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Cookies from 'js-cookie';
 	import Input from '$lib/components/Input.svelte';
 	import { lang } from '$lib/store';
 
@@ -13,7 +14,7 @@
 			body: JSON.stringify({ username, password })
 		});
 		const data = await res.json();
-		localStorage.setItem('token', data.token);
+		Cookies.set('token', data.token);
 		goto('/');
 	}
 </script>
