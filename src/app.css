@@ -40,6 +40,10 @@ body.dark {
     --black: #fefeff;
 }
 
+form {
+    width: 100%;
+}
+
 button, input, textarea {
     border: none;
     outline: none;
@@ -51,7 +55,6 @@ button, input, textarea {
     font-weight: bold;
     padding: 0.5em 1.25em;
     border-radius: .25em;
-    line-height: 1.25;
     color: var(--white);
     background-color: var(--light-gray);
     transition: all .3s ease-out;
@@ -61,6 +64,11 @@ button, input, textarea {
 .btn.primary {
     color: white;
     background-color: var(--blue);
+}
+
+.btn.full-width {
+    display: block;
+    width: 100%;
 }
 
 .btn:hover {

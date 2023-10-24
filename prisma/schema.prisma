@@ -7,11 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Users {
+  username String     @id
+  password String
+  Journals Journals[]
+}
+
 model Journals {
-  date   String  @id
-  title  String
-  body   String
-  status Boolean
-  sport  Boolean
-  coding Boolean
+  date     String  @id
+  title    String
+  body     String
+  status   Boolean
+  sport    Boolean
+  coding   Boolean
+  user     Users   @relation(fields: [username], references: [username])
+  username String
 }

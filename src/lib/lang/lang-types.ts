@@ -36,5 +36,9 @@ export default interface Lang {
         language: string;
         theme: string;
         darkMode: string;
+        signup: string;
+        username: string;
+        password: string;
+        submit: string;
     }
 }

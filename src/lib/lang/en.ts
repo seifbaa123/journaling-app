@@ -37,7 +37,11 @@ const lang: Lang = {
         settings: "Settings",
         language: "Language",
         theme: "Theme",
-        darkMode: "Dark mode"
+        darkMode: "Dark mode",
+        signup: "Signup",
+        username: "Username",
+        password: "Password",
+        submit: "Submit"
     }
 }
 

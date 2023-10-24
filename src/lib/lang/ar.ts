@@ -37,7 +37,11 @@ const lang: Lang = {
         settings: "الإعدادات",
         language: "اللغة",
         theme: "مظهر الموقع",
-        darkMode: "الوضع الليلي"
+        darkMode: "الوضع الليلي",
+        signup: "اشتراك",
+        username: "اسم المستخدم",
+        password: "كلمة المرور",
+        submit: "إرسال"
     }
 }
 
