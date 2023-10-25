@@ -8,7 +8,7 @@
 	let password: string;
 
 	async function handleSubmit() {
-		const res = await fetch('/api/auth/signup', {
+		const res = await fetch('/api/auth/login', {
 			method: 'POST',
 			headers: { 'content-type': 'application/json' },
 			body: JSON.stringify({ username, password })
@@ -20,9 +20,9 @@
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
-	<h1>{$lang.words.signup}</h1>
+	<h1>{$lang.words.login}</h1>
 	<Input label={$lang.words.username} bind:value={username} />
 	<Input label={$lang.words.password} bind:value={password} type="password" />
 	<button class="btn primary full-width">{$lang.words.submit}</button>
-	<a href="/login" class="link">{$lang.words.login}</a>
+	<a href="/signup" class="link">{$lang.words.signup}</a>
 </form>

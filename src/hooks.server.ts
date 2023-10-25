@@ -4,11 +4,13 @@ import jwt from "jsonwebtoken"
 const nonAuthRoutes = [
     "/signup",
     "/api/auth/signup",
+    "/login",
+    "/api/auth/login",
 ]
 
 const redirect = () => new Response(null, {
     status: 301,
-    headers: { location: '/signup' }
+    headers: { location: '/login' }
 })
 
 export async function handle({ event, resolve }) {

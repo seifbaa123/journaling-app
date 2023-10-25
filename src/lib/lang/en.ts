@@ -42,7 +42,8 @@ const lang: Lang = {
         username: "Username",
         password: "Password",
         submit: "Submit",
-        areYouSureYouWantToLogout: "Are you sure you want to logout"
+        areYouSureYouWantToLogout: "Are you sure you want to logout",
+        login: "Login"
     }
 }
 

@@ -15,7 +15,7 @@
 	function logout() {
 		if (confirm($lang.words.areYouSureYouWantToLogout)) {
 			Cookies.remove('token');
-			goto('/signup');
+			goto('/login');
 		}
 	}
 </script>

@@ -18,4 +18,18 @@
 		align-items: center;
 		justify-content: center;
 	}
+
+	.container :global(.link) {
+		display: block;
+		margin-top: 1rem;
+		font-size: 0.75rem;
+		font-weight: bold;
+		text-align: center;
+		color: var(--dark-gray);
+		text-decoration: none;
+	}
+
+	.container :global(.link:hover) {
+		color: var(--blue);
+	}
 </style>

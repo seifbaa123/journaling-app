@@ -40,6 +40,7 @@ export default interface Lang {
         username: string;
         password: string;
         submit: string;
-        areYouSureYouWantToLogout: string
+        areYouSureYouWantToLogout: string,
+        login: string
     }
 }
