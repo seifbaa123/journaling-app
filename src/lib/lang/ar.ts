@@ -41,7 +41,8 @@ const lang: Lang = {
         signup: "اشتراك",
         username: "اسم المستخدم",
         password: "كلمة المرور",
-        submit: "إرسال"
+        submit: "إرسال",
+        areYouSureYouWantToLogout: "هل أنت متأكد أنك تريد تسجيل الخروج"
     }
 }
 

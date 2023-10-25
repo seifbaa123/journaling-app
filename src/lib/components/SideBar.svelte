@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { lang } from '$lib/store';
+	import Cookies from 'js-cookie';
 
 	type Link = { href: string; icon: string };
 
@@ -8,6 +11,13 @@
 		{ href: '/heatmap', icon: 'chart-line' },
 		{ href: '/settings', icon: 'gear' }
 	];
+
+	function logout() {
+		if (confirm($lang.words.areYouSureYouWantToLogout)) {
+			Cookies.remove('token');
+			goto('/signup');
+		}
+	}
 </script>
 
 <nav>
@@ -16,6 +26,7 @@
 			<i class="fa-solid fa-{l.icon}" />
 		</a>
 	{/each}
+	<button on:click={logout}><i class="fa-solid fa-right-from-bracket" /></button>
 </nav>
 
 <style>
@@ -33,12 +44,14 @@
 		background-color: var(--white);
 	}
 
-	a {
+	a,
+	button {
 		flex: 1;
 		padding: 0.5em;
-		text-align: center;
 		font-size: 1.25rem;
+		text-align: center;
 		color: var(--dark-gray);
+		cursor: pointer;
 	}
 
 	a.active {
@@ -57,7 +70,8 @@
 			right: 0;
 		}
 
-		a {
+		a,
+		button {
 			flex: unset;
 		}
 	}
