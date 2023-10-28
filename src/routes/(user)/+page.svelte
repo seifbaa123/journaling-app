@@ -28,6 +28,7 @@
 
 	.item {
 		flex: 1;
+		height: fit-content;
 	}
 
 	.calendar {
