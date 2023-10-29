@@ -22,11 +22,11 @@ export function getLanguage() {
     }
 
     const code = localStorage.getItem("lang")
-    if (code === "ar") {
-        document.body.dir = "rtl"
-        return ar
+    if (code === "en") {
+        document.body.dir = "ltr"
+        return en
     }
 
-    document.body.dir = "ltr"
-    return en
+    document.body.dir = "rtl"
+    return ar
 }
